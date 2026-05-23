@@ -43,8 +43,8 @@ public class CasoLinq
     public List<Libro> GetMayorPromedio(IEnumerable<Libro>? libros)
     {
         if (libros == null) return new List<Libro>();
-        var avg = GetPromedioPrecios(libros);
-        return libros.Where(l => l.Precio > avg).ToList();
+        decimal aux = GetPromedioPrecios(libros);
+        return libros.Where(l => l.Precio > aux).ToList();
     }
 
     public List<Libro> GetOrdenadosPorTituloDesc(IEnumerable<Libro>? libros) => libros?.OrderByDescending(l => l.Titulo).ToList() ?? new List<Libro>();
